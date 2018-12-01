@@ -1,28 +1,55 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+    <div>
+        <div id="messages">
+            <Message v-for="message in messages" :messageText="message" />
+        </div>
+        <form v-on:submit.prevent="submitMessage">
+            <input v-model="inputText" placeholder="new message">
+            <input type="submit" value="add">
+        </form>
+    </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Message from './components/Message.vue';
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+      Message,
+  },
+  data() {
+      return {
+        messages: [
+            'first message',
+            'second',
+            'third',
+            'add another one'
+        ],
+        inputText: ''
+      }
+  },
+  methods: {
+      submitMessage() {
+          this.messages.push(this.inputText);
+          this.inputText = '';
+      }
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+#messages {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 800px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+form {
+    position: fixed;
+    top: 90%;
 }
 </style>
