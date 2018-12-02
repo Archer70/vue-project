@@ -1,10 +1,10 @@
 <template>
     <div class="message">
-        <div class="likes">
+        <span class="likes">
             <a class="like-link" @click.prevent="likePost">Like</a>
             {{ likes }}
-        </div>
-        {{ messageText }}
+        </span>
+        <span>{{ messageText }}</span>
     </div>
 </template>
 
