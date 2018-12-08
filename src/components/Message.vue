@@ -30,7 +30,7 @@ export default {
 <style scoped>
 .message {
     padding: 1rem;
-    border-bottom: 1px solid #efefef;
+    border-bottom: 1px solid #38444d;
 }
 
 .like-link {
